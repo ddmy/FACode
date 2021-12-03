@@ -1,0 +1,42 @@
+const ID = '##ID##'
+const IMGLIST = ##IMGLIST##
+const SPEED = ##SPEED##
+
+
+let cssText = `
+#${ID} {
+  width: 100%;
+  height: 100%;
+  position: relative
+}
+#${ID} img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+`
+let css = document.createElement('style')
+css.innerHTML = cssText
+document.querySelector('head').appendChild(css)
+
+let imgHtml = ''
+IMGLIST.forEach((item, index) => {
+ imgHtml += `<img src="${item}" style="opacity: ${index === 0 ? 1 : 0}">`
+})
+
+document.querySelector(`#${ID}`).innerHTML = imgHtml
+
+const imgs = document.querySelectorAll(`#${ID} img`)
+
+let animationIndex = 1
+setInterval(() => {
+  imgs.forEach((item, index) => {
+    item.style.opacity = index === animationIndex ? 1 : 0
+  })
+  animationIndex++
+  if (animationIndex === IMGLIST.length) {
+    animationIndex = 0
+  }
+}, SPEED)

@@ -1,0 +1,12 @@
+###ID## {
+  animation-name: ##ID##animation;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  background-image: url(##IMG[0]##);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@keyframes ##ID##animation {
+  ##animationStepCss##
+}
