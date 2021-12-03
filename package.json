@@ -1,5 +1,5 @@
 {
-  "name": "FACode",
+  "name": "facode",
   "version": "1.0.0",
   "description": "帧动画代码自动生成工具",
   "main": "app.js",
@@ -10,5 +10,19 @@
     "fa": "fa-cli"
   },
   "author": "Yijio",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddmy/FACode.git"
+  },
+  "keywords": [
+    "AnimationFrame",
+    "code",
+    "auto",
+    "img"
+  ],
+  "bugs": {
+    "url": "https://github.com/ddmy/FACode/issues"
+  },
+  "homepage": "https://github.com/ddmy/FACode#readme"
 }
