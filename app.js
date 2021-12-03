@@ -63,7 +63,10 @@ function run () {
       `
     })
     let cssTemp = fs.readFileSync(path.join(__dirname, './template/animationCss'), 'utf-8')
-    cssTemp = cssTemp.replace(/(##ID##)/g, ID).replace('##IMG[0]##', redPathDir[0]).replace(/(##animationStepCss##)/g, animationStepCss)
+    cssTemp = cssTemp.replace(/(##ID##)/g, ID)
+              .replace('##SPEED##', (argv.speed / 1000) * redPathDir.length)
+              .replace('##IMG[0]##', redPathDir[0])
+              .replace(/(##animationStepCss##)/g, animationStepCss)
     fs.writeFileSync(path.join(process.cwd(), WRITEPATH + ID + '.css'), cssTemp)
   
     console.log(`请引入${ID}.css文件, html 写入ID为'${ID}'的div`)
