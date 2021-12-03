@@ -19,5 +19,5 @@
 
 ### 运行命令
 `
-node app.js mode=css path=./img/ out=./dist/
+fa app.js mode=css path=./img/ out=./dist/
 `
