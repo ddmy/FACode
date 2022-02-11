@@ -72,6 +72,17 @@ function run () {
     console.log(`请引入${ID}.css文件, html 写入ID为'${ID}'的div`)
   
   }
+  // CANVAS 实现动画
+  else if (argv.mode.toLocaleUpperCase() === 'CANVAS') {
+    let jsTemp = fs.readFileSync(path.join(__dirname, './template/canvas'), 'utf-8')
+    jsTemp = jsTemp.replace('##ID##', '#' + ID)
+              .replace('##IMGLIST##', JSON.stringify(redPathDir))
+              .replace('##SPEED##', argv.speed)
+    
+    fs.writeFileSync(path.join(process.cwd(), WRITEPATH + ID + '.js'), jsTemp)
+    
+    console.log(`请引入${ID}.js文件, html 写入ID为'${ID}'的canvas标签`)
+  }
 }
 
 module.exports = run

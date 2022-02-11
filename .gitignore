@@ -2,6 +2,8 @@
 .DS_Store
 node_modules/
 img/
+DD*
+index.html
 
 # local env files
 .env.local
