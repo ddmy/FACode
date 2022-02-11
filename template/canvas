@@ -1,9 +1,8 @@
-window.addEventListener('load', () => {
-
-
+function FACode () {
   const ID = '##ID##'
   const IMGLIST = ##IMGLIST##
   const SPEED = ##SPEED##
+  const needLoading = ##loading##
 
   // 获取canvas的父级dom宽高
   const canvaDom = document.querySelector(ID)
@@ -22,6 +21,7 @@ window.addEventListener('load', () => {
   canvaDom.height = canvaHeight
 
   const maxLength = canvaWidth > canvaHeight ? canvaWidth : canvaHeight
+  let loadingTimer = null
   let ctx = null
 
   const setCtx = () => {
@@ -84,6 +84,8 @@ window.addEventListener('load', () => {
   }
 
   createImage(IMGLIST).then(res => {
+
+    clearInterval(loadingTimer)
     let drawIndex = 0
     setInterval(() => {
       setDrawImage(res[drawIndex])
@@ -95,5 +97,49 @@ window.addEventListener('load', () => {
   }).catch(err => {
     console.error(err)
   })
+
+  const loading = () => {
+    if (!ctx) {
+      setCtx()
+    }
+    let w = canvaDom.width,
+        h = canvaDom.height,
+        x = w/2,
+        y = h/2,
+        radius = 30,
+        r = [3,4,4.5,5,6,7],
+        angle = [10,25,45,65,90,120],
+        alpha = [0.25,0.35,0.45,0.65,0.8,1],
+        x1=[],
+        y1=[];
+
+    ctx.fillStyle = "#FFF"
+    ctx.fillRect(0,0,w,h)
+
+    clearInterval(loadingTimer)
+
+    loadingTimer = setInterval(function(){
+      ctx.fillStyle = "#FFF"
+      ctx.fillRect(0,0,w,h)
+      x1 = []
+      y1 = []
+      for(var i = 0; i < r.length; i ++){
+          if(angle[i] >= 360) angle[i] = 0
+          ctx.beginPath()
+          ctx.font = "1rem sans-serif"
+          ctx.fillStyle = "rgba(200,200,200,"+alpha[i]+")"
+          x1.push( x + radius*Math.cos(angle[i]*Math.PI/180))
+          y1.push( y + radius*Math.sin(angle[i]*Math.PI/180))
+          ctx.arc(x1[i],y1[i],r[i],0,2*Math.PI, true)
+          ctx.closePath()
+          ctx.fill()
+          angle[i] += 5
+      }
+    }, 25)
+  }
   
-})
+  needLoading && loading()
+
+}
+
+window.addEventListener('load', FACode)

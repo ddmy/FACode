@@ -1,7 +1,7 @@
 .hbuilderx
 .DS_Store
 node_modules/
-img/
+img*
 DD*
 index.html
 
