@@ -20,15 +20,15 @@ fa mode=canvas type=jpg speed=100
 
 ### 命令行参数
 
-| 参数名 | 取值 | 说明 |
-| ------ | ------ | ------ |
-| mode | 'js','css','canvas' | 帧动画实现方式，默认JS |
-| speed | int | 逐帧动画间隔时长，默认200毫秒 |
-| type | string | 要合成的图片格式，默认PNG |
-| path | string | 输入图片路径 |
-| out | string | 输出代码文件路径 |
-| loading | Boolean | 是否需要展示loading, 仅支持mode=canvas |
-| minify | Boolean | 是否压缩生成的文件 |
+| 参数名 | 取值 | 默认值 |说明 |
+| ------ | ------ | ------ | ------ |
+| mode | String | 'js' | 帧动画实现方式, 取值范围 'js','css','canvas'|
+| speed | int | 200 |逐帧动画间隔时长 |
+| type | string | 'png' |要合成的图片格式 |
+| path | string | './' |输入图片路径 |
+| out | string | './' |输出代码文件路径 |
+| loading | Boolean | `true` |是否需要展示loading, 仅支持mode=canvas |
+| minify | Boolean | `true` | 是否压缩生成的文件 |
 
 > `path` 参数在正常情况下是一个图片文件夹路径， 在`mode=canvas` 时, `path` 可以是一个文件路径，该文件内容为多个图片的网络资源资源地址，使用正常换行符分割
 

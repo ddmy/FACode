@@ -7,7 +7,7 @@ function getArgv () {
     path: './',
     out: './',
     loading: true,
-    minify: false
+    minify: true
   }
 
   process.argv.filter(item => item.includes('=')).forEach(item => {
