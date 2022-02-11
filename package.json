@@ -1,6 +1,6 @@
 {
   "name": "facode",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "帧动画代码自动生成工具",
   "main": "app.js",
   "scripts": {
