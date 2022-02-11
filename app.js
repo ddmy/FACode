@@ -24,7 +24,7 @@ function run () {
         redPathOriginDir = fs.readFileSync(path.join(process.cwd(), REDPATH), 'utf-8')
         if (redPathOriginDir) {
           intelUrl = true
-          redPathOriginDir = redPathOriginDir.replace(/(\n)|(\r\n)/, ',').split(',')
+          redPathOriginDir = redPathOriginDir.replace(/(\n)|(\r\n)/g, ',').split(',')
         }
       } else {
         throw `当前路径不支持${argv.mode.toLocaleUpperCase()}`
