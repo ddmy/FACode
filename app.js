@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const getArgv = require('./argv')
 const imgToBase64 = require('./imgToBase64')
+const write = require('./write')
 
 function run () {
   // 检查启动参数
@@ -11,6 +12,7 @@ function run () {
   const REDPATH = argv.path
   const WRITEPATH = argv.out.endsWith('/') ? argv.out : argv.out + '/'
   const TYPE = argv.type.toLocaleUpperCase()
+  let intelUrl = false
   
   // 收集帧动画路径所有图片信息
   let redPathOriginDir = null
@@ -61,7 +63,7 @@ function run () {
               .replace('##IMGLIST##', JSON.stringify(redPathDir))
               .replace('##SPEED##', argv.speed)
     
-    fs.writeFileSync(path.join(process.cwd(), WRITEPATH + ID + '.js'), jsTemp)
+    write(path.join(process.cwd(), WRITEPATH + ID + '.js'), jsTemp, argv.minify)
     
     console.log(`请引入${ID}.js文件, html 写入ID为'${ID}'的div`)
   }
@@ -81,7 +83,8 @@ function run () {
               .replace('##SPEED##', (argv.speed / 1000) * redPathDir.length)
               .replace('##IMG[0]##', redPathDir[0])
               .replace(/(##animationStepCss##)/g, animationStepCss)
-    fs.writeFileSync(path.join(process.cwd(), WRITEPATH + ID + '.css'), cssTemp)
+
+    write(path.join(process.cwd(), WRITEPATH + ID + '.css'), cssTemp, argv.minify)
   
     console.log(`请引入${ID}.css文件, html 写入ID为'${ID}'的div`)
   
@@ -94,7 +97,7 @@ function run () {
               .replace('##SPEED##', argv.speed)
               .replace('##loading##', argv.loading)
     
-    fs.writeFileSync(path.join(process.cwd(), WRITEPATH + ID + '.js'), jsTemp)
+    write(path.join(process.cwd(), WRITEPATH + ID + '.js'), jsTemp, argv.minify)
     
     console.log(`请引入${ID}.js文件, html 写入ID为'${ID}'的canvas标签`)
   }

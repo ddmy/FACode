@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/ddmy/FACode/issues"
   },
-  "homepage": "https://github.com/ddmy/FACode#readme"
+  "homepage": "https://github.com/ddmy/FACode#readme",
+  "dependencies": {
+    "uglify-js": "^3.15.1"
+  }
 }

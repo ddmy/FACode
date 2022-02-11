@@ -6,7 +6,8 @@ function getArgv () {
     type: 'PNG',
     path: './',
     out: './',
-    loading: true
+    loading: true,
+    minify: false
   }
 
   process.argv.filter(item => item.includes('=')).forEach(item => {
@@ -19,6 +20,13 @@ function getArgv () {
   }
   if (argv.loading === 'false') {
     argv.loading = false
+  }
+
+  if (argv.minify === 'true') {
+    argv.minify = true
+  }
+  if (argv.minify === 'false') {
+    argv.minify = false
   }
   return argv
 }

@@ -28,6 +28,7 @@ fa mode=canvas type=jpg speed=100
 | path | string | 输入图片路径 |
 | out | string | 输出代码文件路径 |
 | loading | Boolean | 是否需要展示loading, 仅支持mode=canvas |
+| minify | Boolean | 是否压缩生成的文件 |
 
 > `path` 参数在正常情况下是一个图片文件夹路径， 在`mode=canvas` 时, `path` 可以是一个文件路径，该文件内容为多个图片的网络资源资源地址，使用正常换行符分割
 
