@@ -20,7 +20,7 @@ function run () {
     redPathOriginDir = fs.readdirSync(path.join(process.cwd(), REDPATH))
   } catch (error) {
     try {
-      if (argv.mode.toLocaleUpperCase() === 'CANVAS') {
+      if (['CANVAS', 'JS'].includes(argv.mode.toLocaleUpperCase())){
         redPathOriginDir = fs.readFileSync(path.join(process.cwd(), REDPATH), 'utf-8')
         if (redPathOriginDir) {
           intelUrl = true
@@ -60,6 +60,7 @@ function run () {
   if (argv.mode.toLocaleUpperCase() === 'JS') {
     let jsTemp = fs.readFileSync(path.join(__dirname, './template/animationJs'), 'utf-8')
     jsTemp = jsTemp.replace('##ID##', ID)
+              .replace('#LOADING#', argv.loading)
               .replace('##IMGLIST##', JSON.stringify(redPathDir))
               .replace('##SPEED##', argv.speed)
     
