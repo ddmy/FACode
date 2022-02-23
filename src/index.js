@@ -357,3 +357,5 @@ class FaCode {
     document.querySelector(`#${this.id}`).innerHTML = ''
   }
 }
+
+export default FaCode
