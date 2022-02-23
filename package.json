@@ -1,13 +1,10 @@
 {
   "name": "facode",
-  "version": "1.0.9",
-  "description": "帧动画代码自动生成工具",
-  "main": "app.js",
+  "version": "2.0.0",
+  "description": "帧动画代码插件",
+  "module": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "bin": {
-    "fa": "fa-cli"
   },
   "author": "Yijio",
   "license": "ISC",
@@ -24,8 +21,5 @@
   "bugs": {
     "url": "https://github.com/ddmy/FACode/issues"
   },
-  "homepage": "https://github.com/ddmy/FACode#readme",
-  "dependencies": {
-    "uglify-js": "^3.15.1"
-  }
+  "homepage": "https://github.com/ddmy/FACode#readme"
 }
