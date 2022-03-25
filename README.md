@@ -11,7 +11,7 @@ npm install facode -g
 ### 浏览器使用
 > 参见browser分支
 ```js
-npm install@2.0.0 facode
+npm install facode@2.0.0
 ```
 
 ### 使用
