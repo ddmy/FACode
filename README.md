@@ -9,7 +9,7 @@ npm install facode -g
 ```
 
 ### 浏览器使用
-> 参见browser分支
+> [参见browser分支@2.x](https://www.npmjs.com/package/facode/v/2.0.0)
 ```js
 npm install facode@2.0.0
 ```
@@ -34,7 +34,7 @@ fa mode=canvas type=jpg speed=100
 | path | string | './' |输入图片路径 |
 | out | string | './' |输出代码文件路径 |
 | loading | Boolean | `true` |是否需要展示loading, 仅支持`js`和`canvas` |
-| minify | Boolean | `true` | 是否压缩生成的文件 |
+| minify | Boolean | `true` | 是否压缩生成的文件(css模式不支持) |
 
 > `path` 参数在正常情况下是一个图片文件夹路径， 在`mode`为`canvas`和`js` 时, `path` 可以是一个文件路径，该文件内容为多个图片的网络资源资源地址，使用正常换行符分割
 
