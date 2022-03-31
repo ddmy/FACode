@@ -1,6 +1,6 @@
 {
   "name": "facode",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "帧动画代码插件",
   "module": "src/index.js",
   "scripts": {
