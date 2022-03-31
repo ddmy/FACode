@@ -6,7 +6,8 @@ class FaCode {
       imgList = [],
       id = '',
       loading = true,
-      loadingFn = null
+      loadingFn = null,
+      admissionIndex = 0
     } = options
     this.id = id
     this.mode = mode
@@ -15,6 +16,7 @@ class FaCode {
     this.loading = loading
     this.resultImg = []
     this.loadingFn = loadingFn
+    this.admissionIndex = admissionIndex
     if (!this.id) throw new Error('need id!')
     this.creatFaCode()
   }
@@ -47,8 +49,6 @@ class FaCode {
       ctx.drawImage(img, 0, 0, img.width, img.height)
       return canvas.toDataURL("image/png")
     })
-
-    console.log('css:img:', base64List)
 
     const stepLength = 100 / (base64List.length - 1)
     let animationStepCss = `@keyframes ${this.id}animation {`
@@ -92,7 +92,7 @@ class FaCode {
       })
       animationIndex++
       if (animationIndex === imgs.length) {
-        animationIndex = 0
+        animationIndex = this.admissionIndex
       }
     }, this.speed)
   }
@@ -103,7 +103,7 @@ class FaCode {
       this.setDrawImage(this.resultImg[drawIndex])
       drawIndex++
       if (drawIndex === this.resultImg.length) {
-        drawIndex = 0
+        drawIndex = this.admissionIndex + 1
       }
     }, this.speed)
   }
